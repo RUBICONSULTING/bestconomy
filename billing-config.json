@@ -1,0 +1,29 @@
+{
+  "provider": "bizum_business_manual",
+  "currency": "EUR",
+  "enabled": false,
+  "activation_mode": "manual_after_payment_verification",
+  "automatic_renewal": false,
+  "instructions": "No mostrar número ni QR de Bizum hasta confirmar la contratación de Bizum para empresas con el banco. Enviar instrucciones individualmente por email tras recibir solicitud.",
+  "plans": {
+    "plus_monthly": {
+      "name": "Bestconomy Plus mensual",
+      "amount": "4.99",
+      "period_days": 30
+    },
+    "plus_annual": {
+      "name": "Bestconomy Plus anual",
+      "amount": "49.90",
+      "period_days": 365
+    }
+  },
+  "workflow": [
+    "usuario_solicita_plan",
+    "soporte_envia_instrucciones_bizum",
+    "usuario_paga_y_envia_referencia",
+    "administrador_verifica_abono_en_banco",
+    "administrador_activa_plan_y_fecha_fin",
+    "soporte_confirma_por_email"
+  ],
+  "no_payment_processing": true
+}
