@@ -80,3 +80,11 @@
 - On selection, service name is prefilled; prices/frequency remain editable. Display uses brand/service-themed emoji icon mapping.
 - Data remains localStorage for Subscription Radar.
 - Commit `a6217acf832043b50148b4e13af37453bfdb473e`; READY deployment `https://bestconomy-3891gb7h2-rubenrubi93.vercel.app`
+
+## PWA and mobile shell iteration — 2026-11-19
+- Mobile navigation switched to a horizontally scrollable fixed bottom nav with safe-area padding, larger touch targets, and extra bottom content padding.
+- Added a mobile install prompt with Bestconomy app icon, `beforeinstallprompt` install handling and iOS Safari manual instructions; dismiss snoozes prompt for 30 days.
+- Added `sw.js` shell caching (same-origin shell only; API calls excluded) and registered service worker in page.
+- Existing manifest/icons already present and linked from head.
+- Commit `35c9b0be54843eae8e576d32e8f4be06a3c93cd4`; build status pending at checkpoint.
+- Preview only; needs mobile-device manual QA (login, bottom navigation, install prompt, and category/subscription actions).
