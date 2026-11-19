@@ -88,3 +88,10 @@
 - Existing manifest/icons already present and linked from head.
 - Commit `35c9b0be54843eae8e576d32e8f4be06a3c93cd4`; build status pending at checkpoint.
 - Preview only; needs mobile-device manual QA (login, bottom navigation, install prompt, and category/subscription actions).
+
+## UX/mobile stabilization hotfix — 2026-11-19
+- Root cause of login toast identified: `loadMoneyGoalsCloud()` was throwing on the `money_goals` sync and showing a global toast, despite dashboard login/load otherwise succeeding. Now logs diagnostic to console and retains local goals cache; scoped module failure no longer interrupts global flow. Goals render from local cache when cloud sync fails.
+- Added CSS-only mobile auth stabilization: full-width viewport containment, no horizontal overflow, centered auth panel with responsive clamp padding/width, 16px input font to avoid iOS auto-zoom, fixed minimum touch target heights, no transform/zoom on auth panel.
+- No authentication flow, financial data, transaction, account, or category CRUD logic modified.
+- Commit `91cc0040f5a3901aac9304e3093d1d7d4441994e`; deployment READY: https://bestconomy-8naztlc5b-rubenrubi93.vercel.app
+- QA pending user mobile verification for login scale, layout stability and toast absence.
