@@ -64,3 +64,12 @@
 - Latest deployment READY: `https://bestconomy-b2vgxk3i5-rubenrubi93.vercel.app`
 - User manually confirmed login and category actions work after latest fix.
 - Treat this as the stable baseline; do not regress or recreate working features. Preview branch only.
+
+## Subscription Radar v1 — 2026-11-19
+- Added nav tab and dashboard view for Subscription Radar.
+- User-entered subscriptions: name, amount, monthly/annual frequency, edit/delete controls.
+- Monthly equivalent and estimated annual total calculated from entered prices.
+- Detection: scans loaded expense transactions for repeated description concepts across at least 2 distinct months; average charge shown; user can add detected item to radar.
+- Data currently stored in browser localStorage per household id (device/browser only; not Supabase/cloud sync). UI should be QA-tested by user before further development.
+- Commit `1815a84e6191e4bbc1856e5405ce13da8ad2b079`; deployment READY: https://bestconomy-kv2bq174e-rubenrubi93.vercel.app
+- Preview branch only; no production changes.
