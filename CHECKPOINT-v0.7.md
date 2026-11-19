@@ -48,3 +48,9 @@
 - Never create a replacement user or household to troubleshoot.
 - Keep changes on preview branch.
 - Fetch current file/SHA before edits and verify Vercel deployment READY before asking the user to test.
+
+
+## Category module follow-up fix
+- Fixed missing `editingCategoryId` state declaration causing edit flow failure.
+- Edit modal preloads a suggested emoji when category has no icon.
+- Automatic category emoji mapping for common Spanish categories (shopping, transport, home, health, leisure, subscriptions, education, clothing, pets, income, savings, gifts); custom icon remains editable.
