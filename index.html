@@ -250,6 +250,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   if(typeof window.setMode!=='function')window.setMode=function(m){m=m==='signup'?'signup':'login';const title=$('authTitle'),desc=$('authDesc'),submit=$('authSubmit'),lt=$('loginTab'),st=$('signupTab');if(title)title.textContent=m==='login'?'Bienvenido de nuevo':'Crea tu cuenta';if(desc)desc.textContent=m==='login'?'Accede a tu espacio financiero.':'Empieza a tomar el control de tus finanzas.';if(submit)submit.textContent=m==='login'?'Iniciar sesión':'Crear cuenta';if(lt)lt.className='btn '+(m==='login'?'':'ghost');if(st)st.className='btn '+(m==='signup'?'':'ghost');window.__bestconomyAuthMode=m};
   if(typeof window.togglePasswordVisibility!=='function')window.togglePasswordVisibility=function(){const p=$('password'),b=$('togglePassword');if(!p||!b)return;const v=p.type==='password';p.type=v?'text':'password';b.textContent=v?'Ocultar':'Mostrar'};
   if(typeof window.authSubmit!=='function')window.authSubmit=function(){alert('El servicio de autenticación no ha cargado. Recarga la página e inténtalo de nuevo.')};
+  if(typeof window.topAuthAction!=='function')window.topAuthAction=function(){window.showAuth('login')};
 })();
 </script>
 <script id="bestconomy-analytics">
