@@ -27,8 +27,17 @@
 - `145779f81edd3dc988c78f245591f63726753287` Add bank logo selector and account CRUD controls.
 - `e9266e3e9716bdad413a6458604fb163f93b489a` Show bank logo preview when editing account.
 
+## Category management module — implemented (initial)
+- Dedicated Categories navigation and view grouping expense/income categories.
+- Create and edit categories: name, type, color, icon.
+- Duplicate name/type validation.
+- Blocks type changes for categories already linked to transactions or budgets.
+- Blocks deletion when linked to transactions or currently loaded budgets; preserves data.
+- Safe delete with confirmation for unused categories.
+
+
 ## Next phase — prioritized
-1. Category management (create/edit/archive categories; preserve existing transactions).
+1. Category UX QA in browser and validate persistence on create/edit/delete.
 2. Account and transaction UX polish, with clear validation and confirmations.
 3. Dashboard enhancements: cashflow trends, spending breakdowns, account composition.
 4. Personal finance insights/action plan (subscriptions, recurring costs, savings opportunities), with transparent calculations.
