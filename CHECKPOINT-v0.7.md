@@ -73,3 +73,10 @@
 - Data currently stored in browser localStorage per household id (device/browser only; not Supabase/cloud sync). UI should be QA-tested by user before further development.
 - Commit `1815a84e6191e4bbc1856e5405ce13da8ad2b079`; deployment READY: https://bestconomy-kv2bq174e-rubenrubi93.vercel.app
 - Preview branch only; no production changes.
+
+## Subscription Radar catalog — 2026-11-19
+- Added quick-select catalog dropdown for popular services across streaming, audio, AI/software/storage, telecom, gyms and miscellaneous subscriptions.
+- Gym catalog includes Basic-Fit, VivaGym, Synergym, Fitness Park, Altafit, Forus, Dreamfit, GO fit, Anytime Fitness, McFIT, Brooklyn Fitboxing, CrossFit Box, Metropolitan, David Lloyd, SmartFit, Fitup, Holiday Gym, Supera, Viding, O2 Centro Wellness.
+- On selection, service name is prefilled; prices/frequency remain editable. Display uses brand/service-themed emoji icon mapping.
+- Data remains localStorage for Subscription Radar.
+- Commit `a6217acf832043b50148b4e13af37453bfdb473e`; READY deployment `https://bestconomy-3891gb7h2-rubenrubi93.vercel.app`
