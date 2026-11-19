@@ -95,3 +95,16 @@
 - No authentication flow, financial data, transaction, account, or category CRUD logic modified.
 - Commit `91cc0040f5a3901aac9304e3093d1d7d4441994e`; deployment READY: https://bestconomy-8naztlc5b-rubenrubi93.vercel.app
 - QA pending user mobile verification for login scale, layout stability and toast absence.
+
+## Responsive audit pass 1 — 2026-11-19
+- Inspected current preview branch code and project structure before changing anything.
+- Confirmed single-file frontend architecture: index.html (~136 KB) with 6 script blocks, 52 named functions, and 184 DOM ids. Separate API contact endpoint; manifest and service worker present.
+- Confirmed public landing already contains hero, FinScore demo simulator, feature sections, calculators/financial modules, pricing, newsletter/contact and legal content; expansion of marketing/interactive free tier is a later phase.
+- Added global responsive containment rules (min-width:0 for grids/flex items, max-width for media/forms, horizontally scrollable tables, button wrapping, safe-area padding), compact mobile spacing/touch targets, modal bottom-sheet behavior on phones, and landscape auth/modal adjustments.
+- Fixed duplicate consecutive closing style tags in index.html.
+- Patch commit: 8db500d352685165e1f05871b9e0a42fec431fce.
+- Deployment READY: https://bestconomy-5tiwa73vc-rubenrubi93.vercel.app
+- Static verification: one style close tag, duplicate close removed, inserted CSS brace balance 0. No browser/device runtime tests performed yet.
+- No Supabase schema, policies, financial calculation, or CRUD logic modified.
+- Audit notes: Subscription Radar, challenges, and debt-optimizer data currently use localStorage/device-local persistence in part; needs a planned cloud-sync review. Mobile navigation has many tabs; test horizontal navigation ergonomics. Responsive styles are spread across multiple media-query blocks and should be consolidated in a later cleanup, not wholesale rewritten now.
+- Keep preview branch only. Next: manual mobile QA across iPhone narrow, standard phone, tablet and desktop; then improve nav/table UX and proceed with public landing/free-tier architecture.
