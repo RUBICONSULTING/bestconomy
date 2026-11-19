@@ -245,10 +245,10 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   document.addEventListener('DOMContentLoaded',function(){window.BestconomyTrack('page_view',{page:'landing'});});
   document.addEventListener('click',function(ev){
     var el=ev.target&&ev.target.closest?ev.target.closest('button,a'):null;if(!el)return;
-    var label=(el.innerText||el.getAttribute('aria-label')||el.id||'click').trim().replace(/\\s+/g,' ').slice(0,80);
+    var label=(el.innerText||el.getAttribute('aria-label')||el.id||'click').trim().replace(/\s+/g,' ').slice(0,80);
     window.BestconomyTrack('cta_click',{label:label});
     var inline=el.getAttribute('onclick')||'';
-    if(/showAuth\\(['"]signup['"]/.test(inline)||/crear (mi plan|cuenta|registro)/i.test(label))window.BestconomyTrack('signup_cta_click',{label:label});
+    if(/showAuth\(['"]signup['"]/.test(inline)||/crear (mi plan|cuenta|registro)/i.test(label))window.BestconomyTrack('signup_cta_click',{label:label});
     if(/plus/i.test(label)||/contactPlan/i.test(inline))window.BestconomyTrack('plus_interest',{label:label});
   });
   document.addEventListener('input',function(ev){
