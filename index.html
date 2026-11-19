@@ -58,32 +58,26 @@ button,.btn{max-width:100%;white-space:normal;overflow-wrap:anywhere}
 }
 
 
-/* Responsive cards for accounts and transaction history */
+/* Mobile card layout refinement: accounts + transactions */
 @media(max-width:700px){
- .account-table-wrap,.tx-table-wrap{overflow:visible}
- .account-table,.tx-table{min-width:0;width:100%;border-collapse:separate;border-spacing:0}
- .account-table thead,.tx-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
- .account-table tbody,.tx-table tbody{display:grid;gap:10px}
- .account-table tr,.tx-table tr{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;background:#102332;border:1px solid #294453;border-radius:14px;padding:12px;min-width:0}
- .account-table td,.tx-table td{display:block;border:0;padding:4px 0;min-width:0;overflow-wrap:anywhere}
- .account-table td:first-child,.tx-table td:nth-child(2){grid-column:1/-1;font-weight:750;font-size:15px}
- .account-table td:nth-child(2){grid-column:auto;font-weight:500;font-size:13px}
- .account-table td:nth-child(4),.tx-table td:nth-child(4){font-weight:750}
- .account-table td:last-child,.tx-table td:last-child{grid-column:1/-1}
- .account-table td:nth-child(1)::before{content:"Cuenta";display:block;color:#91a7b5;font-size:10px;font-weight:600;margin-bottom:2px}
- .account-table td:nth-child(2)::before{content:"Entidad";display:block;color:#91a7b5;font-size:10px;font-weight:600;margin-bottom:2px}
- .account-table td:nth-child(3)::before{content:"Tipo";display:block;color:#91a7b5;font-size:10px;font-weight:600;margin-bottom:2px}
- .account-table td:nth-child(4)::before{content:"Saldo";display:block;color:#91a7b5;font-size:10px;font-weight:600;margin-bottom:2px}
- .account-table td:nth-child(5)::before{content:"Acciones";display:block;color:#91a7b5;font-size:10px;font-weight:600;margin-bottom:2px}
- .tx-table td:nth-child(1)::before{content:"Fecha";display:block;color:#91a7b5;font-size:10px;font-weight:600;margin-bottom:2px}
- .tx-table td:nth-child(2)::before{content:"Concepto";display:block;color:#91a7b5;font-size:10px;font-weight:600;margin-bottom:2px}
- .tx-table td:nth-child(3)::before{content:"Categoría";display:block;color:#91a7b5;font-size:10px;font-weight:600;margin-bottom:2px}
- .tx-table td:nth-child(4)::before{content:"Importe";display:block;color:#91a7b5;font-size:10px;font-weight:600;margin-bottom:2px}
- .tx-table td:nth-child(5)::before{content:"Acciones";display:block;color:#91a7b5;font-size:10px;font-weight:600;margin-bottom:2px}
- .row-actions{display:flex;flex-wrap:wrap;gap:6px}
- .row-actions .btn{min-height:38px;flex:0 1 auto}
+ .account-table-wrap,.tx-table-wrap{width:100%;max-width:100%;overflow:visible!important;}
+ .account-table,.tx-table{display:block!important;width:100%!important;min-width:0!important;table-layout:fixed!important;border-collapse:separate!important;border-spacing:0!important;}
+ .account-table tbody,.tx-table tbody{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:10px!important;width:100%!important;}
+ .account-table tr,.tx-table tr{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:8px 12px!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;min-width:0!important;margin:0!important;padding:12px!important;overflow:hidden!important;}
+ .account-table td,.tx-table td{display:block!important;width:auto!important;min-width:0!important;max-width:100%!important;box-sizing:border-box!important;padding:4px 0!important;overflow-wrap:anywhere!important;word-break:break-word!important;}
+ .account-table td:nth-child(1){grid-column:1/-1!important;font-weight:750!important;font-size:15px!important;}
+ .account-table td:nth-child(2){grid-column:1/-1!important;font-size:13px!important;}
+ .account-table td:nth-child(3){grid-column:1!important;}
+ .account-table td:nth-child(4){grid-column:2!important;text-align:right!important;font-weight:750!important;}
+ .account-table td:nth-child(5){grid-column:1/-1!important;}
+ .tx-table td:nth-child(2){grid-column:1/-1!important;grid-row:1!important;font-weight:750!important;font-size:15px!important;}
+ .tx-table td:nth-child(1){grid-column:1!important;grid-row:2!important;}
+ .tx-table td:nth-child(3){grid-column:2!important;grid-row:2!important;}
+ .tx-table td:nth-child(4){grid-column:1!important;grid-row:3!important;font-weight:750!important;}
+ .tx-table td:nth-child(5){grid-column:1/-1!important;grid-row:4!important;}
+ .account-table td:last-child .row-actions,.tx-table td:last-child .row-actions{display:flex!important;flex-wrap:wrap!important;gap:6px!important;width:100%!important;}
+ .account-table td:last-child button,.tx-table td:last-child button{flex:1 1 auto!important;min-width:0!important;max-width:100%!important;white-space:normal!important;}
 }
-
 </style></head><body><div class="wrap"><header class="top" id="siteTop"><div class="brand brand-lockup"><img class="brand-logo" src="/Icono%20ne%C3%B3n%20de%20Bestconomy.png" alt="Bestconomy — logo oficial"></div><button class="btn ghost top-auth" id="topAuthButton" onclick="topAuthAction()"><span id="topAuthText">Iniciar sesión</span><span id="topAuthIcon" aria-hidden="true"></span></button></header>
 <section id="landing">
 <div class="hero-v2">
