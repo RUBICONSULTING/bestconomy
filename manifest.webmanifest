@@ -1,10 +1,13 @@
 {
   "name": "Bestconomy",
   "short_name": "Bestconomy",
+  "description": "Tus finanzas, en control.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#07121d",
   "theme_color": "#07121d",
+  "orientation": "any",
   "icons": [
     {
       "src": "/bestconomy-app-icon-1024.png",
