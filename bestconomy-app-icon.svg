@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+<defs>
+ <linearGradient id="edge" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#16d6d0"/><stop offset=".55" stop-color="#00eaa4"/><stop offset="1" stop-color="#b6ff24"/></linearGradient>
+ <radialGradient id="glow" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#032c28"/><stop offset="1" stop-color="#020912"/></radialGradient>
+ <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="15"/></filter>
+</defs>
+<rect width="1024" height="1024" rx="220" fill="#020912"/>
+<rect x="22" y="22" width="980" height="980" rx="205" fill="url(#glow)" stroke="url(#edge)" stroke-width="7"/>
+<rect x="22" y="22" width="980" height="980" rx="205" fill="none" stroke="url(#edge)" stroke-width="22" opacity=".18" filter="url(#soft)"/>
+<!-- monogram B / ascending bars -->
+<path d="M270 215 H622 C743 215 786 280 786 364 C786 430 750 474 696 494 C774 516 818 576 818 660 C818 765 747 808 636 808 H480 V462 H575 V693 H638 C700 693 739 663 739 615 C739 562 704 530 638 530 H604 V430 H626 C679 430 714 396 714 352 C714 307 683 282 622 282 H370 V485 L270 548 Z" fill="#f9fbfc"/>
+<path d="M233 635 L326 593 V785 H233 Z" fill="#00d7d2"/>
+<path d="M357 542 L450 493 V785 H357 Z" fill="#8bff31"/>
+<path d="M481 460 L575 416 V785 H481 Z" fill="#12e8a9"/>
+<path d="M480 460 H578 V785 H480 Z" fill="#00e6a9" opacity=".05"/>
+</svg>
