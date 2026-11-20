@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bestconomy · FinScore prototype</title>
+<style>
+:root{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#eef4ff;background:#0b1220;--panel:#141e30;--muted:#9baac1;--line:#26344b;--mint:#46e6b0;--blue:#6da9ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 12% 0,#172a45 0,transparent 38%),#0b1220;padding:24px;min-height:100vh}
+main{max-width:1000px;margin:auto}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:24px}.brand{font-size:14px;color:var(--mint);letter-spacing:.12em;font-weight:800}.tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:7px 10px}
+h1{font-size:clamp(24px,4vw,34px);margin:8px 0}p{color:var(--muted);line-height:1.5;margin-top:0}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;margin-bottom:18px}.card{background:linear-gradient(155deg,#172338,#121b2a);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 14px 40px #0002}.scorearea{display:flex;align-items:center;gap:22px;flex-wrap:wrap}.gauge{width:152px;height:152px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--mint) var(--score-angle,0deg),#26354b 0);position:relative}.gauge:before{content:"";position:absolute;inset:10px;background:#141e30;border-radius:50%}.gaugeinner{z-index:1;text-align:center}.number{font-size:44px;font-weight:800;line-height:1}.outof{font-size:12px;color:var(--muted)}.grade{font-size:16px;font-weight:700;color:var(--mint)}.subtitle{color:var(--muted);font-size:13px}.pill{background:#17352e;color:var(--mint);padding:7px 10px;border-radius:10px;font-size:12px;display:inline-block}
+.components{display:grid;gap:12px}.component{display:grid;grid-template-columns:1fr auto;gap:6px;font-size:13px}.bar{grid-column:1/3;height:7px;border-radius:10px;background:#26354b;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,#46e6b0,#6da9ff);border-radius:10px;transition:width .2s}.section{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}.inputs{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}.field input{width:100%;background:#0d1625;color:#fff;border:1px solid var(--line);padding:11px 12px;border-radius:10px;font-size:15px;outline:none}.field input:focus{border-color:var(--blue)}.hint{font-size:11px;color:var(--muted);margin-top:5px}.recommend{display:grid;gap:10px}.rec{border:1px solid var(--line);background:#0e1827;border-radius:12px;padding:12px;color:#d9e6f5;font-size:13px;line-height:1.45}.foot{border-top:1px solid var(--line);margin-top:18px;padding-top:14px;color:var(--muted);font-size:11px;line-height:1.5}
+@media(max-width:700px){body{padding:14px}.hero,.section{grid-template-columns:1fr}.inputs{grid-template-columns:1fr 1fr}.scorearea{justify-content:center}.card{padding:16px}}
+</style>
+</head>
+<body><main>
+<div class="top"><div><div class="brand">BESTCONOMY / MONEY INTELLIGENCE</div><h1>FinScore</h1><p>Una lectura rápida de tu salud financiera. Prototipo aislado, no conectado a tu cuenta.</div><span class="tag">PROTOTIPO · DATOS DEMO EDITABLES</span></div>
+<div class="hero">
+<section class="card"><div class="scorearea"><div class="gauge" id="gauge"><div class="gaugeinner"><div class="number" id="score">--</div><div class="outof">/ 100</div></div></div><div><div class="grade" id="grade">Calculando…</div><p class="subtitle" id="summary">Edita los datos de ejemplo para explorar tu puntuación.</p><span class="pill" id="badge">Demo interactiva</span></div></div></section>
+<section class="card"><h3 style="margin:0 0 16px">Desglose del score</h3><div class="components">
+<div class="component"><span>Flujo de caja · 25 pts</span><strong id="cashflowVal">—</strong><div class="bar"><div class="fill" id="cashflowBar"></div></div></div>
+<div class="component"><span>Capacidad de ahorro · 30 pts</span><strong id="savingVal">—</strong><div class="bar"><div class="fill" id="savingBar"></div></div></div>
+<div class="component"><span>Control del presupuesto · 25 pts</span><strong id="budgetVal">—</strong><div class="bar"><div class="fill" id="budgetBar"></div></div></div>
+<div class="component"><span>Liquidez · 20 pts</span><strong id="liquidVal">—</strong><div class="bar"><div class="fill" id="liquidBar"></div></div></div></div></section>
+</div>
+<div class="section">
+<section class="card"><h3 style="margin-top:0">Tus datos mensuales</h3><p class="subtitle">Valores ilustrativos. Sustituye por tus cifras.</p><div class="inputs">
+<div class="field"><label>Ingresos netos (€)</label><input id="income" type="number" min="0" value="2200"></div>
+<div class="field"><label>Gastos mensuales (€)</label><input id="expenses" type="number" min="0" value="1650"></div>
+<div class="field"><label>Presupuesto de gastos (€)</label><input id="budget" type="number" min="0" value="1700"></div>
+<div class="field"><label>Ahorro mensual (€)</label><input id="saving" type="number" min="0" value="350"></div>
+<div class="field"><label>Saldo líquido (€)</label><input id="liquid" type="number" min="0" value="4200"></div>
+<div class="field"><label>Deuda total pendiente (€)</label><input id="debt" type="number" min="0" value="0"></div>
+</div><p class="hint">La deuda se muestra como contexto en esta primera maqueta; aún no afecta a la puntuación.</p></section>
+<section class="card"><h3 style="margin-top:0">Prioridades sugeridas</h3><div class="recommend" id="recommendations"></div></section>
+</div>
+<div class="foot"><strong>Metodología provisional:</strong> Flujo de caja (25) según saldo mensual positivo y margen; ahorro (30) según porcentaje de ahorro/ingresos hasta 20%; presupuesto (25) según gastos frente a límite; liquidez (20) según meses de cobertura hasta 3 meses. No es asesoramiento financiero ni una calificación bancaria. El score es experimental y debe validarse antes de incorporarlo al producto.</div>
+</main>
+<script>
+const $=id=>document.getElementById(id), clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+function calc(){
+ const income=Math.max(0,+$('income').value||0), expenses=Math.max(0,+$('expenses').value||0), budget=Math.max(0,+$('budget').value||0), saving=Math.max(0,+$('saving').value||0), liquid=Math.max(0,+$('liquid').value||0);
+ const surplus=income-expenses, savingRate=income?saving/income:0, expenseRatio=budget?expenses/budget:(expenses===0?0:2), months=expenses?liquid/expenses:3;
+ const cash=income?clamp(surplus/income,0,1)*25:0;
+ const save=clamp(savingRate/.20,0,1)*30;
+ const budgetScore=budget===0?(expenses===0?25:0):clamp(1-expenseRatio*.65,0,1)*25;
+ const liquidity=clamp(months/3,0,1)*20;
+ const total=Math.round(cash+save+budgetScore+liquidity);
+ const grade=total>=85?'Excelente':total>=70?'Salud financiera sólida':total>=50?'En progreso':'Necesita atención';
+ $('score').textContent=total;$('grade').textContent=grade;$('summary').textContent='Saldo mensual estimado: '+surplus.toLocaleString('es-ES',{style:'currency',currency:'EUR'})+' · Tasa de ahorro indicada: '+Math.round(savingRate*100)+'%';
+ $('gauge').style.setProperty('--score-angle',(total*3.6)+'deg');
+ [['cashflow',cash,25],['saving',save,30],['budget',budgetScore,25],['liquid',liquidity,20]].forEach(([id,val,max])=>{$(id+'Val').textContent=Math.round(val)+' / '+max;$(id+'Bar').style.width=(val/max*100)+'%';});
+ const rec=[];
+ if(surplus<0)rec.push('El mes presenta déficit: prioriza recortar o renegociar gastos antes de aumentar compromisos.');
+ else if(surplus<income*.1)rec.push('Intenta elevar el margen mensual por encima del 10% de ingresos.');
+ if(savingRate<.1)rec.push('Objetivo inicial: automatizar un ahorro de al menos el 10% de tus ingresos.');
+ if(budget>0&&expenses>budget)rec.push('Has superado el presupuesto. Revisa las categorías que más se desvían.');
+ if(months<3)rec.push('Fondo de emergencia: avanza hacia 3 meses de gastos esenciales en liquidez.');
+ if(!rec.length)rec.push('Buen equilibrio de ejemplo. Mantén seguimiento mensual y revisa si cambian ingresos o gastos.');
+ $('recommendations').innerHTML=rec.map(x=>'<div class="rec">'+x+'</div>').join('');
+}
+document.querySelectorAll('input').forEach(el=>el.addEventListener('input',calc));calc();
+</script></body></html>
