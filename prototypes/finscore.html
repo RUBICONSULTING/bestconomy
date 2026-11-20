@@ -14,7 +14,7 @@ h1{font-size:clamp(24px,4vw,34px);margin:8px 0}p{color:var(--muted);line-height:
 </style>
 </head>
 <body><main>
-<div class="top"><div><div class="brand">BESTCONOMY / MONEY INTELLIGENCE</div><h1>FinScore</h1><p>Una lectura rápida de tu salud financiera. Prototipo aislado, no conectado a tu cuenta.</div><span class="tag">PROTOTIPO · DATOS DEMO EDITABLES</span></div>
+<div class="top"><div><div class="brand">BESTCONOMY / MONEY INTELLIGENCE</div><h1>FinScore</h1><p>Una lectura rápida de tu salud financiera. Prototipo aislado, no conectado a tu cuenta.</p></div><span class="tag">PROTOTIPO · DATOS DEMO EDITABLES</span></div>
 <div class="hero">
 <section class="card"><div class="scorearea"><div class="gauge" id="gauge"><div class="gaugeinner"><div class="number" id="score">--</div><div class="outof">/ 100</div></div></div><div><div class="grade" id="grade">Calculando…</div><p class="subtitle" id="summary">Edita los datos de ejemplo para explorar tu puntuación.</p><span class="pill" id="badge">Demo interactiva</span></div></div></section>
 <section class="card"><h3 style="margin:0 0 16px">Desglose del score</h3><div class="components">
@@ -43,7 +43,7 @@ function calc(){
  const surplus=income-expenses, savingRate=income?saving/income:0, expenseRatio=budget?expenses/budget:(expenses===0?0:2), months=expenses?liquid/expenses:3;
  const cash=income?clamp(surplus/income,0,1)*25:0;
  const save=clamp(savingRate/.20,0,1)*30;
- const budgetScore=budget===0?(expenses===0?25:0):clamp(1-expenseRatio*.65,0,1)*25;
+ const budgetScore=budget===0?(expenses===0?25:0):clamp(1-Math.max(0,expenseRatio-1)*2,0,1)*25;
  const liquidity=clamp(months/3,0,1)*20;
  const total=Math.round(cash+save+budgetScore+liquidity);
  const grade=total>=85?'Excelente':total>=70?'Salud financiera sólida':total>=50?'En progreso':'Necesita atención';
