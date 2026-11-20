@@ -264,16 +264,44 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 #bc-contact-wa{display:flex;justify-content:center;align-items:center;gap:10px;width:100%;padding:15px;border-radius:14px;background:linear-gradient(90deg,#b6ff26,#27dfb8);color:#07131a;text-decoration:none;font-weight:850;font-size:14px;box-sizing:border-box}
 #bc-contact-email{display:block;text-align:center;margin-top:14px;color:#9fead9;text-decoration:none;font-size:13px}
 #bc-contact-later{display:block;width:100%;margin-top:14px;border:0;background:transparent;color:#95aab7;padding:9px 5px 2px;font-size:13px;cursor:pointer}
-@media(max-width:480px){#bc-contact-box{padding:23px 20px}}
+@media(max-width:480px){#bc-contact-box{padding:23px 20px}}#bc-contact-box{width:min(100%,480px);padding:24px;max-height:92vh;overflow-y:auto}
+#bc-contact-box h2{font-size:clamp(23px,5vw,29px);margin:6px 0 8px}
+#bc-contact-box p{margin-bottom:15px}
+#bc-contact-plans{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}
+.bc-plan-tile{display:grid;gap:5px;text-align:left;text-decoration:none;color:#f5fbff;border-radius:17px;border:1px solid #294859;background:linear-gradient(145deg,#132b3a,#0b1a26);padding:14px 12px;cursor:pointer;font-family:inherit}
+.bc-plan-tile span{font-size:9px;letter-spacing:1px;font-weight:900;color:#9fb7c5}
+.bc-plan-tile strong{font-size:27px;letter-spacing:-1px;line-height:1.15}
+.bc-plan-tile strong small{font-size:11px;color:#95aab8;letter-spacing:0}
+.bc-plan-tile>small{font-size:10px;color:#a7bac6;line-height:1.4;min-height:28px}
+.bc-plan-plus{border-color:#7a9a4c;background:radial-gradient(ellipse at top right,#4a6c2825,transparent 60%),linear-gradient(145deg,#183334,#0b1a26)}
+.bc-plan-plus span,.bc-plan-action{color:#b6ff26!important}
+.bc-plan-action{font-size:10px;font-weight:900;margin-top:5px}
+.bc-contact-options{display:grid;gap:9px;margin-top:14px}
+.bc-contact-option{display:flex;align-items:center;gap:12px;padding:12px 13px;border-radius:14px;text-decoration:none;color:#f2fbff;border:1px solid #274354;background:#102432}
+.bc-contact-option-wa{border-color:#42744b;background:linear-gradient(120deg,#18352f,#102432)}
+.bc-contact-option-email{background:#102333}
+.bc-contact-icon{width:36px;height:36px;border-radius:11px;background:#193a44;display:grid;place-items:center;font-size:18px;color:#b6ff26;flex-shrink:0}
+.bc-contact-option>span:nth-child(2){flex:1;display:grid;gap:2px}
+.bc-contact-option strong{font-size:13px}
+.bc-contact-option small{font-size:11px;color:#a5bac7}
+.bc-contact-option>b{font-size:18px;color:#b6ff26}
+#bc-contact-later{margin-top:10px}
+@media(max-width:360px){#bc-contact-plans{grid-template-columns:1fr}.bc-plan-tile>small{min-height:0}}
 </style>
 <div id="bc-contact-overlay" role="dialog" aria-modal="true" aria-labelledby="bc-contact-title">
  <div id="bc-contact-box">
   <button id="bc-contact-x" aria-label="Cerrar contacto">×</button>
   <div id="bc-contact-brand"><img src="/bestconomy-app-icon-192.png" alt="Bestconomy"><div><strong>BESTCONOMY</strong><small>Finanzas más conscientes</small></div></div>
-  <h2 id="bc-contact-title">¿Te ayudamos a dar el siguiente paso?</h2>
-  <p>¿Tienes dudas, quieres conocer Bestconomy Plus o necesitas ayuda? Escríbenos y te atendemos personalmente.</p>
-  <a id="bc-contact-wa" href="https://wa.me/34698889149?text=Hola%2C%20he%20visitado%20Bestconomy%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer">◉ HABLAR POR WHATSAPP</a>
-  <a id="bc-contact-email" href="mailto:rrubiconsulting@gmail.com?subject=Consulta%20Bestconomy">O escribir por email</a>
+  <h2 id="bc-contact-title">Tu siguiente paso financiero empieza aquí.</h2>
+  <p>Elige cómo empezar. Descubre Bestconomy gratis o desbloquea tu estrategia completa con Plus.</p>
+  <div id="bc-contact-plans">
+   <button class="bc-plan-tile bc-plan-free" onclick="hideContactPopup();showAuth('signup')"><span>STARTER</span><strong>0 €</strong><small>Empieza gratis · Sin compromiso</small><b class="bc-plan-action">CREAR MI CUENTA ↗</b></button>
+   <a class="bc-plan-tile bc-plan-plus" href="https://wa.me/34698889149?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Bestconomy%20Plus%20y%20c%C3%B3mo%20activarlo."><span>BESTCONOMY PLUS</span><strong>4,99 €<small>/mes</small></strong><small>Más análisis · Más estrategia · Más control</small><b class="bc-plan-action">QUIERO PLUS ↗</b></a>
+  </div>
+  <div class="bc-contact-options">
+   <a class="bc-contact-option bc-contact-option-wa" id="bc-contact-wa" href="https://wa.me/34698889149?text=Hola%2C%20he%20visitado%20Bestconomy%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer"><span class="bc-contact-icon">◉</span><span><strong>WhatsApp</strong><small>Respuesta directa y personal</small></span><b>↗</b></a>
+   <a class="bc-contact-option bc-contact-option-email" id="bc-contact-email" href="mailto:rrubiconsulting@gmail.com?subject=Consulta%20Bestconomy"><span class="bc-contact-icon">✉</span><span><strong>Email</strong><small>Cuéntanos qué necesitas</small></span><b>↗</b></a>
+  </div>
   <button id="bc-contact-later">Ahora no, seguir explorando</button>
  </div>
 </div>
@@ -282,7 +310,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  const overlay=document.getElementById('bc-contact-overlay');if(!overlay)return;
  const x=document.getElementById('bc-contact-x'),later=document.getElementById('bc-contact-later');
  const logo=overlay.querySelector('#bc-contact-brand img');if(logo)logo.onerror=function(){this.onerror=null;this.src='/Icono%20ne%C3%B3n%20de%20Bestconomy.png'};
- const key='bestconomy_contact_popup_dismissed_v1';
+ const key='bestconomy_contact_popup_dismissed_v2';
+ window.hideContactPopup=function(){overlay.classList.remove('bc-contact-show')};
  const isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)||((navigator.platform==='MacIntel')&&navigator.maxTouchPoints>1);
  function wasDismissed(){try{const v=Number(localStorage.getItem(key)||0);return v&&Date.now()-v<14*24*60*60*1000}catch(e){return false}}
  function hide(){overlay.classList.remove('bc-contact-show');try{localStorage.setItem(key,String(Date.now()))}catch(e){}}
@@ -290,7 +319,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  x.addEventListener('click',hide);later.addEventListener('click',hide);
  overlay.addEventListener('click',e=>{if(e.target===overlay)hide()});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('bc-contact-show'))hide()});
- if(!wasDismissed())setTimeout(()=>{if(!isMobile||!document.getElementById('bc-install-overlay')?.classList.contains('bc-show'))show()},15000);
+ if(!wasDismissed())setTimeout(()=>{if(!isMobile||!document.getElementById('bc-install-overlay')?.classList.contains('bc-show'))show()},10000);
 })();
 </script>
 </body></html>
