@@ -290,7 +290,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  x.addEventListener('click',hide);later.addEventListener('click',hide);
  overlay.addEventListener('click',e=>{if(e.target===overlay)hide()});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('bc-contact-show'))hide()});
- if(!wasDismissed())setTimeout(()=>{if(!isMobile||!document.getElementById('bc-install-overlay')?.classList.contains('bc-show'))show()},45000);
+ if(!wasDismissed())setTimeout(()=>{if(!isMobile||!document.getElementById('bc-install-overlay')?.classList.contains('bc-show'))show()},15000);
 })();
 </script>
 </body></html>
