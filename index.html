@@ -248,4 +248,49 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   }
 })();
 </script>
+
+<style id="bestconomy-contact-popup-v1">
+#bc-contact-overlay{position:fixed;inset:0;z-index:99990;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(3,8,15,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+#bc-contact-overlay.bc-contact-show{display:flex}
+#bc-contact-box{position:relative;overflow:hidden;width:min(100%,430px);border-radius:25px;border:1px solid rgba(36,222,187,.24);padding:26px;background:linear-gradient(150deg,#102332,#071119 72%);color:#f3f9fc;box-shadow:0 24px 90px rgba(0,0,0,.55),0 0 35px rgba(23,213,175,.08);font-family:inherit}
+#bc-contact-box:before{content:"";position:absolute;width:240px;height:240px;top:-115px;right:-110px;background:radial-gradient(circle,rgba(182,255,37,.17),transparent 68%);pointer-events:none}
+#bc-contact-x{position:absolute;top:13px;right:13px;width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,255,255,.08);color:#e5f1f5;font-size:22px;cursor:pointer}
+#bc-contact-brand{display:flex;align-items:center;gap:11px;margin-bottom:20px}
+#bc-contact-brand img{width:48px;height:48px;object-fit:contain;border-radius:14px}
+#bc-contact-brand strong{font-size:12px;letter-spacing:.1em}
+#bc-contact-brand small{display:block;color:#99b0bf;margin-top:3px;font-size:12px}
+#bc-contact-box h2{font-size:25px;line-height:1.2;margin:8px 0 10px;font-weight:850;letter-spacing:-.025em}
+#bc-contact-box p{font-size:14px;color:#b7c9d5;line-height:1.55;margin:0 0 18px}
+#bc-contact-wa{display:flex;justify-content:center;align-items:center;gap:10px;width:100%;padding:15px;border-radius:14px;background:linear-gradient(90deg,#b6ff26,#27dfb8);color:#07131a;text-decoration:none;font-weight:850;font-size:14px;box-sizing:border-box}
+#bc-contact-email{display:block;text-align:center;margin-top:14px;color:#9fead9;text-decoration:none;font-size:13px}
+#bc-contact-later{display:block;width:100%;margin-top:14px;border:0;background:transparent;color:#95aab7;padding:9px 5px 2px;font-size:13px;cursor:pointer}
+@media(max-width:480px){#bc-contact-box{padding:23px 20px}}
+</style>
+<div id="bc-contact-overlay" role="dialog" aria-modal="true" aria-labelledby="bc-contact-title">
+ <div id="bc-contact-box">
+  <button id="bc-contact-x" aria-label="Cerrar contacto">×</button>
+  <div id="bc-contact-brand"><img src="/bestconomy-app-icon-192.png" alt="Bestconomy"><div><strong>BESTCONOMY</strong><small>Finanzas más conscientes</small></div></div>
+  <h2 id="bc-contact-title">¿Te ayudamos a dar el siguiente paso?</h2>
+  <p>¿Tienes dudas, quieres conocer Bestconomy Plus o necesitas ayuda? Escríbenos y te atendemos personalmente.</p>
+  <a id="bc-contact-wa" href="https://wa.me/34698889149?text=Hola%2C%20he%20visitado%20Bestconomy%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer">◉ HABLAR POR WHATSAPP</a>
+  <a id="bc-contact-email" href="mailto:rrubiconsulting@gmail.com?subject=Consulta%20Bestconomy">O escribir por email</a>
+  <button id="bc-contact-later">Ahora no, seguir explorando</button>
+ </div>
+</div>
+<script id="bestconomy-contact-popup-script">
+(function(){
+ const overlay=document.getElementById('bc-contact-overlay');if(!overlay)return;
+ const x=document.getElementById('bc-contact-x'),later=document.getElementById('bc-contact-later');
+ const logo=overlay.querySelector('#bc-contact-brand img');if(logo)logo.onerror=function(){this.onerror=null;this.src='/Icono%20ne%C3%B3n%20de%20Bestconomy.png'};
+ const key='bestconomy_contact_popup_dismissed_v1';
+ const isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)||((navigator.platform==='MacIntel')&&navigator.maxTouchPoints>1);
+ function wasDismissed(){try{const v=Number(localStorage.getItem(key)||0);return v&&Date.now()-v<14*24*60*60*1000}catch(e){return false}}
+ function hide(){overlay.classList.remove('bc-contact-show');try{localStorage.setItem(key,String(Date.now()))}catch(e){}}
+ function show(){if(document.getElementById('bc-install-overlay')?.classList.contains('bc-show'))return;overlay.classList.add('bc-contact-show')}
+ x.addEventListener('click',hide);later.addEventListener('click',hide);
+ overlay.addEventListener('click',e=>{if(e.target===overlay)hide()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('bc-contact-show'))hide()});
+ if(!wasDismissed())setTimeout(()=>{if(!isMobile||!document.getElementById('bc-install-overlay')?.classList.contains('bc-show'))show()},45000);
+})();
+</script>
 </body></html>
